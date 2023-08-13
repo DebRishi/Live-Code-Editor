@@ -1,0 +1,29 @@
+services:
+  
+  code-sync-service:
+    build: ./code-sync-service
+    restart: always
+    ports:
+      - 8010:4000
+  
+  code-exec-service:
+    build: ./code-exec-service
+    restart: always
+    ports:
+      - 8020:5000
+    depends_on:
+      - mongodb
+      - redisdb
+  
+  mongodb:
+    image: mongo:6
+    restart: always
+    volumes:
+      - mongodb:/data/db
+  
+  redisdb:
+    image: redis:7
+    restart: always
+
+volumes:
+  mongodb: {}

@@ -1,0 +1,42 @@
+{
+	"name": "code-editor-webapp",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"main": "src/index.js",
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "6.4.2",
+		"@fortawesome/free-regular-svg-icons": "6.4.2",
+		"@fortawesome/free-solid-svg-icons": "6.4.2",
+		"@fortawesome/react-fontawesome": "0.2.0",
+		"axios": "1.4.0",
+		"codemirror": "5.65.14",
+		"loader-utils": "3.2.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-hot-toast": "2.4.1",
+		"react-router-dom": "6.14.2",
+		"react-scripts": "5.0.1",
+		"react-select": "5.7.4",
+		"serve": "14.2.0",
+		"socket.io-client": "4.7.2",
+		"uuid": "9.0.0"
+	},
+	"devDependencies": {
+		"@babel/runtime": "7.13.8",
+		"tailwindcss": "3.3.3",
+		"typescript": "4.1.3"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	]
+}
