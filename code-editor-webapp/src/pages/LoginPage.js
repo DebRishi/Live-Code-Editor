@@ -24,7 +24,8 @@ const LoginPage = () => {
         }
 
         navigate(`/editor/${roomId}`, {
-            state: { username }
+            state: { username },
+            replace: true
         });
     }
 

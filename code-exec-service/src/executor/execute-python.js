@@ -7,7 +7,7 @@ const executePython = async (codeFoldPath) => {
     const filePath = path.join(codeFoldPath, "Main.py");
     const inputPath = path.join(codeFoldPath, "inputs.txt");
     
-    const command = `python ${filePath} ${inputPath}`;
+    const command = `cat ${inputPath} | python ${filePath}`;
     
     return new Promise((resolve, reject) => {
         

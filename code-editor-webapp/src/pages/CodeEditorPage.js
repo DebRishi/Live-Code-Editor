@@ -31,9 +31,7 @@ const CodeEditorPage = () => {
 	}
 
 	const leaveRoom = () => {
-		reactNavigator("/", {
-			replace: true
-		});
+		reactNavigator("/", { replace: true });
 	}
 
 	useEffect(() => {

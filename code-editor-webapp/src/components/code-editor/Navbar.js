@@ -4,12 +4,13 @@ import { faPlayCircle, faShare, faCircleXmark } from "@fortawesome/free-solid-sv
 import LanguageDropdown from "./navbar-components/LanguageDropdown";
 import { checkExecutionStatus, submitCode } from "../api/api";
 import { useWindowSize } from "../utils/window-size";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ language, setLanguage, setOutput, setStatus, inputs, code, copyRoomId, leaveRoom }) => {
 
 	const { width } = useWindowSize(2);
-	const [ flag, setFlag ] = useState(true);
-	
+	const [flag, setFlag] = useState(true);
+
 	useEffect(() => {
 		if (width > 1200) {
 			setFlag(true)
@@ -17,7 +18,7 @@ const Navbar = ({ language, setLanguage, setOutput, setStatus, inputs, code, cop
 			setFlag(false);
 		}
 	}, [width]);
-	
+
 	const submitHandler = async () => {
 		setStatus("Running");
 		setOutput(`Code Execution Status: Running`);
@@ -35,7 +36,7 @@ const Navbar = ({ language, setLanguage, setOutput, setStatus, inputs, code, cop
 
 			const { data } = await checkExecutionStatus(jobId);
 			const { job } = data;
-			
+
 			// console.log(data);
 
 			if (job.status !== "Submitted" && job.status !== "Running") {
