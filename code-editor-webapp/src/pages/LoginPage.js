@@ -1,40 +1,39 @@
 import { useState } from "react";
-import {v4 as uuid4} from "uuid";
+import { v4 as uuid4 } from "uuid";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-    
+
     const navigate = useNavigate();
-    
+
     const [roomId, setRoomId] = useState("");
     const [username, setUsername] = useState("");
-    
+
     const createNewRoom = (event) => {
         event.preventDefault();
         const id = uuid4();
         setRoomId(id);
         toast.success("Created new room");
     }
-    
+
     const joinRoom = () => {
-        if(!roomId || !username) {
+        if (!roomId || !username) {
             toast.error("Room Id & Username is required");
             return;
         }
-        
+
         navigate(`/editor/${roomId}`, {
-            replace: true,
             state: { username }
         });
     }
-    
+
     const handleInputEnter = (event) => {
-        if(event.code === "Enter") {
+        if (event.code === "Enter") {
             joinRoom();
         }
     }
-    
+
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-slate-100">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-2xl lg:max-w-xl">
@@ -45,7 +44,7 @@ const LoginPage = () => {
                     <div className="my-3">
                         <input
                             value={roomId}
-                            onChange={(e) => {setRoomId(e.target.value)}}
+                            onChange={(e) => { setRoomId(e.target.value) }}
                             onKeyUp={handleInputEnter}
                             placeholder="Enter Room Id"
                             className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -54,7 +53,7 @@ const LoginPage = () => {
                     <div className="my-3">
                         <input
                             value={username}
-                            onChange={(e) => {setUsername(e.target.value)}}
+                            onChange={(e) => { setUsername(e.target.value) }}
                             onKeyUp={handleInputEnter}
                             placeholder="Enter Username"
                             className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"

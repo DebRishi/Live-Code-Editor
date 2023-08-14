@@ -1,19 +1,28 @@
 services:
   
+  code-editor-webapp:
+    build: ./code-editor-webapp
+    restart: always
+    depends_on:
+      - code-sync-service
+      - code-exec-service
+    ports:
+      - 8888:3000
+  
   code-sync-service:
     build: ./code-sync-service
     restart: always
     ports:
-      - 8010:4000
+      - 8889:4000
   
   code-exec-service:
     build: ./code-exec-service
     restart: always
-    ports:
-      - 8020:5000
     depends_on:
       - mongodb
       - redisdb
+    ports:
+      - 8890:5000
   
   mongodb:
     image: mongo:6
