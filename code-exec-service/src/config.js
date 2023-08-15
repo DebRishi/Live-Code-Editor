@@ -1,8 +1,8 @@
 const ENV = {
-    MONGO_PASS: "enter-password",
-    MONGO_HOST: "localhost",
+    MONGO_PASS: "debaditya.rishi",
+    MONGO_HOST: "127.0.0.1",
     MONGO_PORT: 27017,
-    REDIS_HOST: "localhost",
+    REDIS_HOST: "redisdb",
     REDIS_PORT: 6379,
     REDIS_WORKERS: 5,
     TIME_LIMIT: 15000
