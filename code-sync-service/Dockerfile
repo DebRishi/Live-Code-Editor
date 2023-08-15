@@ -2,10 +2,10 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm ci --production
 
-COPY . .
+COPY ./ ./
 
 CMD ["node", "src/server.js"]

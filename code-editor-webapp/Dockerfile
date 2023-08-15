@@ -7,10 +7,10 @@ RUN apk add openjdk17
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm ci --production
 
-COPY . .
+COPY ./ ./
 
 CMD [ "npm", "run", "start:prod"]
