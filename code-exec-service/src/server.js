@@ -8,7 +8,8 @@ const { ENV, LANGUAGE } = require("./config");
 const Job = require("./models/Job");
 
 mongoose.connect(
-    `mongodb://${ENV.MONGO_HOST}:${ENV.MONGO_PORT}/compiler`,
+    // `mongodb://${ENV.MONGO_HOST}:${ENV.MONGO_PORT}/code-exec-service`,
+    `mongodb+srv://debaditya:${ENV.MONGO_PASS}@cluster.1i7rzwb.mongodb.net/?retryWrites=true&w=majority`,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -18,7 +19,7 @@ mongoose.connect(
             console.error(err);
             process.exit(1);
         }
-        console.log(`Connected to mongodb. HOST::${ENV.MONGO_HOST} and PORT::${ENV.MONGO_PORT}`)
+        console.log(`Connected to MONGODB`)
     }
 );
 

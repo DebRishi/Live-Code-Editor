@@ -19,20 +19,12 @@ services:
     build: ./code-exec-service
     restart: always
     depends_on:
-      - mongodb
       - redisdb
     ports:
       - 8890:5000
   
-  mongodb:
-    image: mongo:6
-    restart: always
-    volumes:
-      - mongodb:/data/db
-  
   redisdb:
-    image: redis:7
+    image: redis:alpine
     restart: always
-
-volumes:
-  mongodb: {}
+    ports:
+      - 6379:6379

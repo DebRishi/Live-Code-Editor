@@ -1,7 +1,8 @@
 const ENV = {
-    MONGO_HOST: "mongodb",
+    MONGO_PASS: "enter-password",
+    MONGO_HOST: "localhost",
     MONGO_PORT: 27017,
-    REDIS_HOST: "redisdb",
+    REDIS_HOST: "localhost",
     REDIS_PORT: 6379,
     REDIS_WORKERS: 5,
     TIME_LIMIT: 15000
