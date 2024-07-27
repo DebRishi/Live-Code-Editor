@@ -1,10 +1,10 @@
 const fs = require("fs");
 const Queue = require("bull");
-const Job = require("./models/Job");
-const { executeCpp } = require("./executor/execute-cpp");
-const { executeJava } = require("./executor/execute-java");
-const { executePython } = require("./executor/execute-python");
-const { ENV, LANGUAGE, STATE } = require("./config");
+const Job = require("../schema/Job");
+const { executeCpp } = require("../executor/execute-cpp");
+const { executeJava } = require("../executor/execute-java");
+const { executePython } = require("../executor/execute-python");
+const { ENV, LANGUAGE, STATE } = require("../config/config");
 
 const jobQueue = new Queue("job-queue", {
     redis: {
@@ -24,7 +24,7 @@ jobQueue.process(ENV.REDIS_WORKERS, async ({ data }) => {
         let output;
         try {
             job["startedAt"] = new Date();
-            job["status"] = "Running";
+            job["status"] = STATE.RUNNING;
             
             await job.save();
             

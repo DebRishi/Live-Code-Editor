@@ -2,13 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const { generateFile } = require("./generate-file");
-const { addJobToQueue } = require("./job-queue");
-const { ENV, LANGUAGE } = require("./config");
-const Job = require("./models/Job");
+const { generateFile } = require("./service/generate-file");
+const { addJobToQueue } = require("./service/job-queue");
+const { ENV, LANGUAGE } = require("./config/config");
+const Job = require("./schema/Job");
 
 mongoose.connect(
-    // `mongodb://${ENV.MONGO_HOST}:${ENV.MONGO_PORT}/code-exec-service`,
     `mongodb+srv://debaditya:${ENV.MONGO_PASS}@cluster.1i7rzwb.mongodb.net/?retryWrites=true&w=majority`,
     {
         useNewUrlParser: true,

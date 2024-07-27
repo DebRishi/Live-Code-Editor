@@ -1,4 +1,4 @@
-const { STATE, LANGUAGE } = require("./../config");
+const { STATE, LANGUAGE } = require("../config/config");
 const mongoose = require("mongoose");
 
 const JobSchema = mongoose.Schema({

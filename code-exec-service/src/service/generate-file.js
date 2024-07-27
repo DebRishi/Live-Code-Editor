@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { v4: uuid } = require("uuid");
-const { EXTENSIONS } = require("./config");
+const { EXTENSIONS } = require("../config/config");
 
 const dirCodes = path.join(__dirname, "codes");
 

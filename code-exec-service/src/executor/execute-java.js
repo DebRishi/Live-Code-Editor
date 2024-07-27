@@ -1,5 +1,5 @@
 const { exec } = require("child_process");
-const { ENV, STATE } = require("../config");
+const { ENV, STATE } = require("../config/config");
 
 const executeJava = (codeFoldPath) => {
     
